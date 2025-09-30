@@ -30,5 +30,7 @@ int* array_merge(int num_arrays, int* sizes, int** values) {
   result[0] = unique_count;
 
   free(all);
+
+  // Caller is responsible for freeing the returned array.
   return result;
 }
