@@ -3,6 +3,14 @@
 #include "../mergesort/mergesort.h"
 
 int* array_merge(int num_arrays, int* sizes, int** values) {
+  /*
+  @Param num_arrays: number of input arrays
+  @Param sizes: array of sizes of each input array
+  @Param values: array of input arrays
+
+  @Returns: a new array containing the count of unique elements
+            followed by the unique elements in sorted order.
+  */
   int total = 0;
   for (int i = 0; i < num_arrays; i++) {
     total += sizes[i];
