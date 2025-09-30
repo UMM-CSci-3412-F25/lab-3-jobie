@@ -1,12 +1,10 @@
 #include "mergesort.h"
+#include <stdlib.h>
 
 void mergesort(int size, int values[]) {
-  // This obviously doesn't actually do any *sorting*, so there's
-  // certainly work still to be done.
-  //
-  // Remember that a key goal here is to learn to use
-  // `malloc/calloc` and `free`, so make sure you explicitly
-  // allocate any new arrays that you need, even if you
-  // might not strictly need to.
-  return;
+    // Pseudocode for merge sort:
+    // 1. If the array has 1 or fewer elements, return (already sorted)
+    // 2. Split the array into two halves
+    // 3. Recursively sort each half
+    // 4. Merge the two sorted halves into a single sorted array
 }
