@@ -1,13 +1,34 @@
 #include "array_merge.h"
+#include <stdlib.h>
 #include "../mergesort/mergesort.h"
 
 int* array_merge(int num_arrays, int* sizes, int** values) {
-  // Pseudocode for merging arrays:
-  // 1. Calculate the total number of elements across all arrays
-  // 2. Allocate a new array to hold all elements
-  // 3. Copy all elements from each input array into the new array
-  // 4. Sort the merged array (mergesort)
-  // 5. Remove duplicates from the sorted array
-  // 6. Return the resulting array
-  return sizes;
+  int total = 0;
+  for (int i = 0; i < num_arrays; i++) {
+    total += sizes[i];
+  }
+
+  int* all = (int*) calloc(total, sizeof(int));
+  int idx = 0;
+
+  for (int i = 0; i < num_arrays; i++) {
+    for (int j = 0; j < sizes[i]; j++) {
+      all[idx++] = values[i][j];
+    }
+  }
+
+  mergesort(total, all);
+
+  int* result = (int*) calloc((total + 1), sizeof(int));
+  int unique_count = 0;
+  for (int i = 0; i < total; i++) {
+    if (i == 0 || all[i] != all[i - 1]) {
+      result[unique_count + 1] = all[i];
+      unique_count++;
+    }
+  }
+  result[0] = unique_count;
+
+  free(all);
+  return result;
 }
